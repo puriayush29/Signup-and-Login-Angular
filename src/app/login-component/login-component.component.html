@@ -1,0 +1,36 @@
+<mat-toolbar>
+    <span>Login</span>
+</mat-toolbar>
+    <mat-card class="my-card">
+        <mat-card-content>
+            <form class="my-form" (submit) = "onLogin(loginForm)" #loginForm = "ngForm">
+                <mat-form-field class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" 
+                    ngModel name="email"  #email = "ngModel" required>
+                    <mat-error *ngIf= "email.invalid">
+                        <mat-error *ngIf = "email.errors.required">
+                            Pls enter the email field
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Password"minlength="8"
+                    ngModel name="password" #password = "ngModel" required>
+                    <mat-error *ngIf= "password.invalid">
+                        <mat-error *ngIf = "password.errors.required">
+                            Pls enter the password field
+                        </mat-error>
+                        <mat-error *ngIf = "password.errors.minlength">
+                            passwsord should be minimum of 8 characters..
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+                <mat-card-actions>
+                    <button mat-raised-button type="submit" color="primary" (click) = "onLoginButton()">Login</button>
+                </mat-card-actions>
+            </form>
+        </mat-card-content>
+        
+    </mat-card>

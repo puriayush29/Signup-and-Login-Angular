@@ -1,0 +1,115 @@
+<mat-toolbar>
+    <span>Registration</span>
+</mat-toolbar>
+    <mat-card class="my-card">
+<mat-card-content>
+<form class="my-form" (submit) = "onRegister(registerForm)" #registerForm = "ngForm">
+    <mat-form-field class="full-width">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="First Name" minlength="3"
+        ngModel name ="fname" #fname = "ngModel" required>
+        <mat-error *ngIf = "fname.invalid">
+            <mat-error *ngIf = "fname.errors.required">
+                Pls enter the first name field
+            </mat-error>
+           
+            <mat-error *ngIf = "fname.errors.minlength">
+                Name should be minimun of three characters..
+            </mat-error>
+           
+        </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="full-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Last Name" minlength="3"
+        ngModel name ="lname" #lname = "ngModel" required>
+        <mat-error *ngIf = "lname.invalid">
+            <mat-error *ngIf = "lname.errors.required">
+                Pls enter the last name field
+            </mat-error>
+           
+            <mat-error *ngIf = "lname.errors.minlength">
+                Name should be minimun of three characters..
+            </mat-error>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" minlength="5"
+        ngModel name ="uname" #uname = "ngModel" required>
+        <mat-error *ngIf = "uname.invalid">
+            <mat-error *ngIf = "uname.errors.required">
+                Pls enter the Username field
+            </mat-error>
+           
+            <mat-error *ngIf = "uname.errors.minlength">
+                Username should be minimun of five characters..
+            </mat-error>
+           
+        </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="full-width">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Address" minlength = "10"
+        ngModel  name ="address" #address = "ngModel" required>
+        <mat-error *ngIf = "address.invalid">
+            <mat-error *ngIf = "address.errors.required">
+                Pls enter the address field
+            </mat-error>
+           
+            <mat-error *ngIf = "address.errors.minlength">
+                address should be minimun of 10 characters..
+            </mat-error>
+        </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" 
+        ngModel name ="email" #email = "ngModel" required>
+        <mat-error *ngIf = "email.invalid">
+            <mat-error *ngIf = "email.errors.required">
+                Pls enter the email field
+            </mat-error>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <mat-label>Password</mat-label>
+        <input  matInput placeholder="Password"  minlength="8"
+        ngModel name ="password" #password = "ngModel" required>
+        <mat-error *ngIf = "password.invalid">
+            <mat-error *ngIf = "password.errors.required">
+                Pls enter the password field
+            </mat-error>
+            <mat-error *ngIf = "password.errors.minlength">
+                password should be minimun of 8 characters..
+            </mat-error>
+            <!-- <mat-error *ngIf="((myForm.controls['password'].touched)&& myForm.controls['password'].hasError('pattern')))">
+                password should contain one letter and one number..
+            </mat-error> -->
+        </mat-error>
+    </mat-form-field>
+    <section class="example-section">
+        <label class="example-margin">Gender:</label><br>
+        <mat-radio-group name="gender"  [(ngModel)]="gender">
+          <mat-radio-button class="example-margin" value="after">Male</mat-radio-button>
+          <mat-radio-button class="example-margin" value="before">Female</mat-radio-button>
+          <mat-radio-button class="example-margin" value="before">Other</mat-radio-button>
+        </mat-radio-group>
+      </section>
+      <mat-form-field>
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker] = "picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    <mat-card-actions>
+    <button mat-raised-button type="submit" color="primary" (click) = "onRegisterButton()">Register</button>
+    </mat-card-actions>
+</form>
+</mat-card-content>
+
+    </mat-card>
+    
