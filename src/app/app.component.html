@@ -1,12 +1,15 @@
+<!-- <div *ngIf = "triggerButton">
 <mat-toolbar color="primary">
-
 <mat-toolbar-row>
   <span><a mat-button href="">Social</a></span>
   <span class="spacer"></span>
-  <a mat-button routerLink ="/register">Register</a>
-  <a mat-button routerLink = "/login">Login</a>
+  <a mat-button routerLink ="/register" (click) = "regsiterTriggered()">Register</a>
+  <a mat-button routerLink = "/login" (click) = "loginTriggered()">Login</a>
+  
 </mat-toolbar-row>
 </mat-toolbar>
-<h1  style="color:#E91E63;font-size:5rem;text-align: center;">Welcome to the social page</h1>
-<h3 style="text-align: center;font-size:1rem;">Tip:To login or signup u need to click on the button</h3>
+<h1 style="text-align: center;color:#C2185B">Welcome to Social</h1>
+</div> -->
 <router-outlet></router-outlet>
+
+

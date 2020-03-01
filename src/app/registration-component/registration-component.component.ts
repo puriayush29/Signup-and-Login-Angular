@@ -1,26 +1,27 @@
-import { Component, OnInit,Output} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { UserRegistrationService } from './../user-registration.service';
+import { Component, OnInit,Output, ComponentFactoryResolver} from '@angular/core';
 import {Router} from '@angular/router';
-import { EventEmitter } from 'protractor';
+import {User} from './../user';
 @Component({
   selector: 'app-registration-component',
   templateUrl: './registration-component.component.html',
   styleUrls: ['./registration-component.component.css']
 })
-export class RegistrationComponentComponent implements OnInit {
-  value:boolean = false;
-  constructor(private router:Router) { }
-  onRegister(form:NgForm)
+export class RegistrationComponentComponent{
+  constructor(private router:Router,private service:UserRegistrationService) { }
+  user:User = new User("","",0,"","");
+  message:any;
+  onRegister(form)
   {
-    this.value = true;
-  }
-  onRegisterButton()
-  {
-    if(this.value == true){
-    this.router.navigateByUrl('/registerPage');
+    if(form.valid == true)
+    { 
+      this.router.navigateByUrl('/login');
     }
   }
- ngOnInit() {
+  registerProcess(form)
+  { 
+    console.log(form.value);
+    let response = this.service.doRegistration(form.value);
+    response.subscribe((data) => this.message = data)
   }
-
 }
